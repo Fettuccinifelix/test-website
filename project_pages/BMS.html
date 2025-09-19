@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Battery Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="experience.html">Experience & Education</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="misc.html">Miscellaneous</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="project-main">
+    <header class="project-header">
+      <h1>Battery Management System (BMS)</h1>
+      <p class="subtitle">UBC Bionics | GRASP Prosthetic Arm</p>
+      <img src="/assets/img/Nick Santoso (1).jpg" alt="Nick Santoso" class="profile-img">
+      <p class="lead">Biomedical Engineering Student | Medical Devices & Bionic Prosthesis Enthusiast</p>
+    </header>
+
+    <section class="project-section">
+      <h2>Background & Overview</h2>
+      <p>
+        UBC Bionics is an undergraduate design team focused on developing innovative solutions to enhance or replace human physiological functions. The team is working on GRASP, a myoelectric prosthetic arm, and NERV, a brain-computer interface. The BMS for GRASP protects the battery from faults, optimizes health, and safeguards electronics.
+      </p>
+      <figure>
+        <img src="/assets/img/BMS/D94A7703.jpg" alt="The team!" class="project-img">
+        <figcaption>Img 1: A picture of some of the team</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/D94A7693.jpg" alt="The arm" class="project-img">
+        <figcaption>Img 2: A picture of the arm</figcaption>
+      </figure>
+      <p>
+        The BMS was my first project with UBC Bionics. I gained hands-on experience with soldering, component selection, and PCB design in Altium. Special thanks to Justin The for research and partnership.
+      </p>
+    </section>
+
+    <section class="project-section">
+      <h2>1.0 BMS Summary</h2>
+      <p>
+        A BMS manages battery cells, ensuring safety and reliability. Key features include:
+      </p>
+      <ul>
+        <li>Cell balancing</li>
+        <li>Overcurrent protection</li>
+        <li>Temperature sensing</li>
+        <li>Overcharge protection</li>
+        <li>Overdischarge protection</li>
+      </ul>
+      <h3>1.1 Initial Iteration</h3>
+      <p>
+        The system monitors pack voltage, temperature, and current, disconnects charging on faults, and communicates with controllers. Outputs include SOC, SOH, and fault reports.
+      </p>
+      <figure>
+        <img src="/assets/img/BMS/image20.png" alt="BMS Sketch" class="project-img">
+        <figcaption>Img 3: Rough BMS sketch</figcaption>
+      </figure>
+    </section>
+
+    <section class="project-section">
+      <h2>2.0 System Specifications</h2>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Design Requirement</th>
+            <th>Justification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Add your spec rows here -->
+        </tbody>
+      </table>
+    </section>
+
+    <section class="project-section">
+      <h2>3.0 Initial Iteration</h2>
+      <p>
+        Version 1 uses a Master-Slave topology. The master board (STM32, buck converters) is in the forearm; the slave board (protection, balancing, fuel gauging) is in the shoulder. I worked on the slave board.
+      </p>
+      <figure>
+        <img src="/assets/img/BMS/bms-Page-2.drawio.png" alt="BMS architecture" class="project-img">
+        <figcaption>Img 4: BMS architecture</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/IMG_0864.jpg" alt="old board" class="project-img">
+        <figcaption>Img 5: The initial iteration of the slave board</figcaption>
+      </figure>
+    </section>
+
+    <section class="project-section">
+      <h3>Battery Protection (BQ77915)</h3>
+      <p>
+        The BQ77915 IC provides voltage, current, temperature protections and cell balancing. It protects against overvoltage, undervoltage, overcurrent, short circuit, and temperature faults.
+      </p>
+      <figure>
+        <img src="/assets/img/BMS/protsch.jpg" alt="protection schematic" class="project-img">
+        <figcaption>Img 6: Protection circuit schematic</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/protalllayer.JPG" alt="All layers" class="project-img">
+        <figcaption>Img 7: Protection board PCB layout</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/prot3d.JPG" alt="3D img of board" class="project-img">
+        <figcaption>Img 8: 3D render of protection PCB</figcaption>
+      </figure>
+    </section>
+
+    <section class="project-section">
+      <h3>Fuel Gauging (BQ34110)</h3>
+      <p>
+        The BQ34110 gas gauge tracks SOC and SOH, communicating via I2C. It uses CEDV technology for accurate capacity prediction and monitors current via a shunt resistor.
+      </p>
+      <figure>
+        <img src="/assets/img/BMS/FGsch2.jpg" alt="Fuel gauge schematic" class="project-img">
+        <figcaption>Img 9: Fuel gauge circuit schematic</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/FGalllayer.JPG" alt="All layers FG" class="project-img">
+        <figcaption>Img 10: Fuel gauge board PCB layout</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/BMS/FG3d.JPG" alt="3D img of FG board" class="project-img">
+        <figcaption>Img 11: 3D render of fuel gauge PCB</figcaption>
+      </figure>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Specifications</h2>
+      <h3>Battery protection (/cell)</h3>
+      <ul>
+        <li>OV threshold (mV): 4200; Hysteresis (mV): 200</li>
+        <li>UV threshold (mV): 2900; Hysteresis (mV): 400</li>
+        <li>OW threshold (nA): 100</li>
+        <li>OCD threshold (mV): 70</li>
+        <li>SCD threshold (mV): 120</li>
+        <li>OCC threshold (mV): 70</li>
+        <li>OTC temperature (degC): 45; OTD temperature (degC): 65; UTD temperature (degC): -10; UTC temperature (degC): 0</li>
+        <li>Cell balancing V_start (V): 3.8</li>
+      </ul>
+      <h3>General</h3>
+      <ul>
+        <li>number of series cells: 4</li>
+        <li>V_in (max): 25 V</li>
+        <li>Overvoltage threshold: 4.2V</li>
+        <li>Undervoltage (overdischarge) threshold: 2.9V</li>
+      </ul>
+    </section>
+
+    <section class="project-section">
+      <h3>3.1 Lessons Learned</h3>
+      <p>
+        During testing, I realized I had mistakenly shorted the CHG and DSG MOSFETs through ground planes. To resolve this, I redesigned the system into two separate PCBs and had multiple peer reviews before fabricating. If time permitted, I would re-merge the circuits into one board, incorporate a programmable IC for configurable thresholds, and ideally integrate protection and fuel gauging into one IC to reduce footprint.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Portfolio | Designed by Me</p>
+  </footer>
+</body>
+</html>
